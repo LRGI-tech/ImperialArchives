@@ -64,6 +64,9 @@ void showCountryPicker({
   bool showWorldWide = false,
   bool showSearch = true,
   bool useSafeArea = false,
+  String title = '',
+  void Function()? onLeadingTap,
+  Widget? icon,
   bool useRootNavigator = false,
   bool moveAlongWithKeyboard = false,
 }) {
@@ -75,6 +78,7 @@ void showCountryPicker({
     context: context,
     onSelect: onSelect,
     onClosed: onClosed,
+    onBackgroundColor: countryListTheme?.backgroundColor,
     exclude: exclude,
     favorite: favorite,
     countryFilter: countryFilter,
@@ -85,6 +89,9 @@ void showCountryPicker({
     showWorldWide: showWorldWide,
     showSearch: showSearch,
     useSafeArea: useSafeArea,
+    title: title,
+    onLeadingTap: onLeadingTap,
+    icon: icon,
     useRootNavigator: useRootNavigator,
     moveAlongWithKeyboard: moveAlongWithKeyboard,
   );

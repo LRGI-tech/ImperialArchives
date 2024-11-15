@@ -7,6 +7,7 @@ import 'country_list_view.dart';
 void showCountryListBottomSheet({
   required BuildContext context,
   required ValueChanged<Country> onSelect,
+  Color? onBackgroundColor,
   VoidCallback? onClosed,
   List<String>? favorite,
   List<String>? exclude,
@@ -18,14 +19,18 @@ void showCountryListBottomSheet({
   bool showWorldWide = false,
   bool showSearch = true,
   bool useSafeArea = false,
+  String title = '',
+  Widget? icon,
+  void Function()? onLeadingTap,
   bool useRootNavigator = false,
   bool moveAlongWithKeyboard = false,
 }) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.transparent,
+    backgroundColor: onBackgroundColor ?? Colors.transparent,
     useSafeArea: useSafeArea,
+    showDragHandle: true,
     useRootNavigator: useRootNavigator,
     builder: (context) => _builder(
       context,
@@ -38,6 +43,9 @@ void showCountryListBottomSheet({
       searchAutofocus,
       showWorldWide,
       showSearch,
+      title,
+      icon,
+      onLeadingTap,
       moveAlongWithKeyboard,
       customFlagBuilder,
     ),
@@ -57,15 +65,20 @@ Widget _builder(
   bool searchAutofocus,
   bool showWorldWide,
   bool showSearch,
+  String title,
+  Widget? icon,
+  void Function()? onLeadingTap,
   bool moveAlongWithKeyboard,
   CustomFlagBuilder? customFlagBuilder,
 ) {
   final device = MediaQuery.of(context).size.height;
   final statusBarHeight = MediaQuery.of(context).padding.top;
-  final height = countryListTheme?.bottomSheetHeight ?? device - (statusBarHeight + (kToolbarHeight / 1.5));
+  final height = countryListTheme?.bottomSheetHeight ??
+      device - (statusBarHeight + (kToolbarHeight / 1.5));
   final width = countryListTheme?.bottomSheetWidth;
 
-  Color? _backgroundColor = countryListTheme?.backgroundColor ?? Theme.of(context).bottomSheetTheme.backgroundColor;
+  Color? _backgroundColor = countryListTheme?.backgroundColor ??
+      Theme.of(context).bottomSheetTheme.backgroundColor;
 
   if (_backgroundColor == null) {
     if (Theme.of(context).brightness == Brightness.light) {
@@ -82,7 +95,9 @@ Widget _builder(
       );
 
   return Padding(
-    padding: moveAlongWithKeyboard ? MediaQuery.of(context).viewInsets : EdgeInsets.zero,
+    padding: moveAlongWithKeyboard
+        ? MediaQuery.of(context).viewInsets
+        : EdgeInsets.zero,
     child: Container(
       height: height,
       width: width,
@@ -94,12 +109,15 @@ Widget _builder(
       ),
       child: CountryListView(
         onSelect: onSelect,
+        title: title,
         exclude: exclude,
         favorite: favorite,
+        icon: icon,
         countryFilter: countryFilter,
         showPhoneCode: showPhoneCode,
         countryListTheme: countryListTheme,
         searchAutofocus: searchAutofocus,
+        onLeadingTap: onLeadingTap,
         showWorldWide: showWorldWide,
         showSearch: showSearch,
         customFlagBuilder: customFlagBuilder,
