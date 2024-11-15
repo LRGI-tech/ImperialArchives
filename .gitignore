@@ -28,7 +28,7 @@
 .packages
 .pub-cache/
 .pub/
-*.lock
+# *.lock
 build/
 
 # Android related
