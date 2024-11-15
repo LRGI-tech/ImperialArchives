@@ -20,9 +20,9 @@ class CountryListView extends StatefulWidget {
 
   final String title;
 
-  final Widget? icon;
+  final Widget? trailingIcon;
 
-  final void Function()? onLeadingTap;
+  final void Function()? onTrailingTap;
 
   /// An optional [exclude] argument can be used to exclude(remove) one ore more
   /// country from the countries list. It takes a list of country code(iso2).
@@ -61,8 +61,8 @@ class CountryListView extends StatefulWidget {
     this.favorite,
     this.countryFilter,
     this.title = '',
-    this.icon,
-    this.onLeadingTap,
+    this.trailingIcon,
+    this.onTrailingTap,
     this.showPhoneCode = false,
     this.countryListTheme,
     this.searchAutofocus = false,
@@ -150,10 +150,10 @@ class _CountryListViewState extends State<CountryListView> {
                 style: widget.countryListTheme?.titleStyle,
                 textAlign: TextAlign.center,
               ),
-              if (widget.icon != null)
+              if (widget.trailingIcon != null)
                 IconButton(
-                  icon: widget.icon!,
-                  onPressed: widget.onLeadingTap,
+                  icon: widget.trailingIcon!,
+                  onPressed: widget.onTrailingTap,
                 ),
             ],
           ),

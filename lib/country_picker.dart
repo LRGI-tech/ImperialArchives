@@ -65,8 +65,8 @@ void showCountryPicker({
   bool showSearch = true,
   bool useSafeArea = false,
   String title = '',
-  void Function()? onLeadingTap,
-  Widget? icon,
+  void Function()? onTrailingTap,
+  Widget? trailingIcon,
   bool useRootNavigator = false,
   bool moveAlongWithKeyboard = false,
 }) {
@@ -90,8 +90,8 @@ void showCountryPicker({
     showSearch: showSearch,
     useSafeArea: useSafeArea,
     title: title,
-    onLeadingTap: onLeadingTap,
-    icon: icon,
+    onTrailingTap: onTrailingTap,
+    trailingIcon: trailingIcon,
     useRootNavigator: useRootNavigator,
     moveAlongWithKeyboard: moveAlongWithKeyboard,
   );
