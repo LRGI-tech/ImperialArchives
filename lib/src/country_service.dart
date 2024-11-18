@@ -27,6 +27,11 @@ class CountryService {
     return _countries.firstWhereOrNull((country) => country.name == name);
   }
 
+  ///Returns the first country that match the given name.
+  Country? findByTranslatedName(String? name) {
+    return _countries.firstWhereOrNull((country) => country.name == name);
+  }
+
   ///Returns the first country that match the given phone code.
   Country? findByPhoneCode(String? phoneCode) {
     return _countries
