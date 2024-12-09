@@ -146,6 +146,87 @@ class CountryLocalizations {
         return en[countryCode];
     }
   }
+
+  String? countryCode({required String countryName}) {
+    switch (locale.languageCode) {
+      case 'zh':
+        switch (locale.scriptCode) {
+          case 'Hant':
+            return tw.map((key, value) => MapEntry(value, key))[countryName];
+          case 'Hans':
+          default:
+            return cn.map((key, value) => MapEntry(value, key))[countryName];
+        }
+      case 'el':
+        return gr.map((key, value) => MapEntry(value, key))[countryName];
+      case 'es':
+        return es.map((key, value) => MapEntry(value, key))[countryName];
+      case 'et':
+        return et.map((key, value) => MapEntry(value, key))[countryName];
+      case 'he':
+        return he.map((key, value) => MapEntry(value, key))[countryName];
+      case 'pt':
+        return pt.map((key, value) => MapEntry(value, key))[countryName];
+      case 'nb':
+        return nb.map((key, value) => MapEntry(value, key))[countryName];
+      case 'nn':
+        return nn.map((key, value) => MapEntry(value, key))[countryName];
+      case 'uk':
+        return uk.map((key, value) => MapEntry(value, key))[countryName];
+      case 'pl':
+        return pl.map((key, value) => MapEntry(value, key))[countryName];
+      case 'tr':
+        return tr.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ro':
+        return ro.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ru':
+        return ru.map((key, value) => MapEntry(value, key))[countryName];
+      case 'sk':
+        return sk.map((key, value) => MapEntry(value, key))[countryName];
+      case 'hi':
+      case 'ne':
+        return np.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ar':
+        return ar.map((key, value) => MapEntry(value, key))[countryName];
+      case 'bg':
+        return bg.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ku':
+        return ku.map((key, value) => MapEntry(value, key))[countryName];
+      case 'hr':
+        return hr.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ht':
+        return ht.map((key, value) => MapEntry(value, key))[countryName];
+      case 'fr':
+        return fr.map((key, value) => MapEntry(value, key))[countryName];
+      case 'de':
+        return de.map((key, value) => MapEntry(value, key))[countryName];
+      case 'lv':
+        return lv.map((key, value) => MapEntry(value, key))[countryName];
+      case 'lt':
+        return lt.map((key, value) => MapEntry(value, key))[countryName];
+      case 'nl':
+        return nl.map((key, value) => MapEntry(value, key))[countryName];
+      case 'it':
+        return it.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ko':
+        return ko.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ja':
+        return ja.map((key, value) => MapEntry(value, key))[countryName];
+      case 'id':
+        return id.map((key, value) => MapEntry(value, key))[countryName];
+      case 'cs':
+        return cs.map((key, value) => MapEntry(value, key))[countryName];
+      case 'da':
+        return da.map((key, value) => MapEntry(value, key))[countryName];
+      case 'ca':
+        return ca.map((key, value) => MapEntry(value, key))[countryName];
+      case 'fa':
+        return fa.map((key, value) => MapEntry(value, key))[countryName];
+      case 'en':
+      default:
+        return en.map((key, value) => MapEntry(value, key))[countryName];
+    }
+  }
 }
 
 class _CountryLocalizationsDelegate
